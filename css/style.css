@@ -1,0 +1,1091 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --peach-light: #FFDAB9;
+    --peach-medium: #FFB07F;
+    --peach-dark: #e9967a;
+    --cream-white: #FFF5E1;
+    --soft-brown: #e16100;
+    --coral-dark: #D65A31;
+    --brown-dark: #ffac00;
+
+    --text-color: var(--brown-dark);
+}
+.text-shadow-1 {
+     text-shadow:
+             -1px -1px 0 black,
+             1px -1px 0 black,
+             -1px  1px 0 black,
+             1px  1px 0 black; /* Чорна обводка */
+
+ }
+.text-shadow-2 {
+    text-shadow:
+            -2px -2px 0 black,
+            2px -2px 0 black,
+            -2px  2px 0 black,
+            2px  2px 0 black; /* Чорна обводка */
+
+}
+body {
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    background-color: var(--peach-dark);
+    position: relative;
+    z-index: -10;
+}
+
+.header {
+    background-color: var(--peach-dark);
+
+    position: sticky;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+
+}
+.header.slide-in {
+    /* Кінцеве положення - на місці */
+    transform: translateY(0);
+    opacity: 1;
+}
+.header-left {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    letter-spacing: 2px;
+    font-size: 1.4rem;
+
+
+}
+.header-left h1 {
+    font-family: "Lilita One", serif;
+    color: var(--cream-white);
+    font-weight: 600;
+    text-shadow:
+            -1px -1px 0 black,
+            1px -1px 0 black,
+            -1px  1px 0 black,
+            1px  1px 0 black; /* Чорна обводка */
+
+}
+@media screen and (max-width: 768px) {
+    .header-left {
+        margin-left: 4vw;
+        white-space: nowrap;
+    }
+
+}
+.header-right {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+}
+.main-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 4vw;
+}
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+/* Кнопка бургер-меню */
+.menu-toggle {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none; /* Ховаємо на великих екранах */
+    margin-right: 2vw;
+}
+
+/* Бокове меню */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Ховаємо за екраном */
+    width: 250px;
+    height: 100%;
+    background-color: var(--peach-medium);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    padding-top: 20px;
+    display: none; /* Вимкнене за замовчуванням */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+
+}
+
+/* Відкрите меню */
+.side-menu.open {
+    right: 0;
+}
+
+/* Кнопка закриття */
+.close-menu {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+
+
+.menu-item {
+    color: black;
+    text-decoration: none;
+    margin: 0 2vw;
+    list-style: none;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    white-space: nowrap;
+    font-family: "Lilita One", serif;
+
+
+}
+.menu-item a {
+    text-decoration: none;
+    color: var(--text-color);
+    text-shadow:
+            -1px -1px 0 black,
+            1px -1px 0 black,
+            -1px  1px 0 black,
+            1px  1px 0 black; /* Чорна обводка */
+
+}
+.menu-item a:hover {
+    color: var(--coral-dark); /* Колір при наведенні */
+}
+.icon-header {
+    position: relative;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.icon-item {
+    margin: 1vw;
+    list-style: none;
+}
+.margin-right {
+    margin-right: 6vw;
+}
+/* Медиа-запит: на мобільних все ховається в бургер-меню */
+@media (max-width: 768px) {
+    .menu {
+        margin-top: 8vh;
+        gap: 1vh;
+        flex-direction: column;
+    }
+    .icon-header {
+        margin-top: 4vh;
+        gap: 0;
+
+        /*display: grid;*/
+        /*grid-template-columns: repeat(2, 1fr);  */
+    }
+
+    .main-nav {
+        display: none; /* Ховаємо звичайне меню */
+    }
+
+    .menu-toggle {
+        display: block; /* Показуємо бургер */
+    }
+
+    .side-menu {
+        display: block; /* Меню доступне, але сховане за екраном */
+    }
+}
+.wrapper {
+    /*margin-top: 12vh;*/
+    width: 100%;
+    background: linear-gradient(360deg, var(--peach-light) 0%, var(--peach-medium) 50%, var(--peach-dark) 100%);
+    height: auto;
+    overflow-x: hidden;
+    position: relative;
+    z-index: -200;
+
+}
+/*.wrapper:after {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    height: 400vh;*/
+/*    z-index: -1;*/
+/*    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Twemoji_1f351.svg/1200px-Twemoji_1f351.svg.png");*/
+/*    background-repeat: space;*/
+/*    background-size: auto 10vh;*/
+/*}*/
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 76vh;
+}
+.main-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.main-content-left {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    margin-left: 12vw;
+}
+.main-img-border {
+    width: 60vh;
+    height: 60vh;
+    border-radius: 50%;
+    background: var(--peach-light) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-img-border img {
+    position: relative;
+
+    width: 56vh;
+    height: 56vh;
+    border-radius: 50%;
+}
+.main-content-right {
+    display: flex;
+    width: 60%;
+    align-items: center;
+
+}
+.main-content-left,
+.main-content-right {
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    opacity: 0;
+}
+
+/* Початкове положення: блок зліва */
+.main-content-left {
+    transform: translateX(-100%);
+}
+
+/* Початкове положення: блок справа */
+.main-content-right {
+    transform: translateX(100%);
+}
+
+/* Клас, що анімує появу зліва */
+.slide-in-left {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Клас, що анімує появу справа */
+.slide-in-right {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.main-text h2 {
+    font-size: 5rem;
+    font-family: "Lilita One", serif;
+    color: var(--cream-white);
+    font-weight: 900;
+    text-shadow:
+            -2px -2px 0 black,
+            2px -2px 0 black,
+            -2px  2px 0 black,
+            2px  2px 0 black; /* Чорна обводка */
+}
+.dog {
+    position: relative;
+    white-space: nowrap;
+}
+.dog::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: -10%;
+    left: -2%;
+    transform: rotate(15deg);
+    width: 50px;
+    height: 50px;
+    background-image: url("/static/MP_head.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.main-text p {
+    font-size: 2rem;
+    font-family: "Lilita One", serif;
+    color: var(--text-color);
+    font-weight: 400;
+    text-shadow:
+            -2px -2px 0 black,
+            2px -2px 0 black,
+            -2px  2px 0 black,
+            2px  2px 0 black; /* Чорна обводка */
+
+}
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column ;
+        text-align: center ;
+    }
+    .main-content-left {
+        margin-left: 0vw;
+        justify-content: center;
+        width: 100%;
+        height: 80%;
+    }
+
+    .main-img-border {
+        width: 40vw ;
+        height: 40vw ;
+    }
+
+    .main-img-border img {
+
+        width: 36vw ;
+        height: 36vw ;
+    }
+    .main-content-right {
+        justify-content: center;
+        width: 100%;
+    }
+    .main-text h2 {
+        font-size: 4rem;
+    }
+    .main-text p {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .main-text h2 {
+        font-size: 3rem;
+    }
+    .main-text p {
+        font-size: 1rem;
+    }
+    .dog::after {
+        width: 30px;
+        height: 30px;
+
+    }
+}
+
+.ca {
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+.ca.fade-in {
+    opacity: 1;
+}
+.ca-container {
+    box-shadow: 0.5em 0.5em 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 2em;
+}
+.ca-content {
+    width: 90%;
+    display: flex;              /* Гнучкий контейнер */
+    flex-direction: row;        /* Розташування елементів у ряд */
+    align-items: center;
+    justify-content: space-between;
+}
+/* Блок із кнопкою (label) не даємо йому "стискатися" */
+label.container {
+    flex-shrink: 0;
+}
+/* Текст, який скорочуватиметься */
+.ca-text {
+    color: var(--text-color);
+    flex: 1;                    /* Займає весь вільний простір, даючи змогу "підтискати" текст */
+    min-width: 0;               /* Дозволяє блоку зменшуватися менше за вміст */
+    white-space: nowrap;        /* Не переносити слова на новий рядок */
+    overflow: hidden;           /* Ховати текст, що не вміщується */
+    text-overflow: ellipsis;    /* Додавати трикрапку в кінці */
+    margin-right: 1rem;         /* Невеликий відступ від кнопки */
+    font-size: 1.3rem;          /* Можна регулювати під себе */
+    font-family: "Lilita One", serif;
+    letter-spacing: 2px;
+}
+@media (max-width: 768px) {
+    .ca-container {
+        width: 90%;
+        height: 60%;
+        border-radius: 1.2em;/* Розтягуємо контейнер майже на всю ширину */
+    }
+    .ca-text {
+        font-size: 0.9rem;      /* Зменшуємо шрифт на мобільних, якщо треба */
+    }
+    /* Якщо хочете зменшити висоту секції .ca: */
+    .ca {
+        height: 12vh;          /* або видаліть фіксовану висоту зовсім */
+        padding: 1em 0;
+    }
+}
+
+.how-to-buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.how-to-buy.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.htb-main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
+
+}
+.htb-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    font-size: 3rem;
+    font-family: "Lilita One", serif;
+    color: var(--cream-white);
+
+}
+.htb-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 3em;
+    width: 80%;
+    margin: 4vh 0 1vh 0;
+}
+.htb-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.61);
+    border-radius: 2em;
+    width: 80%;
+    height: 80%;
+    gap: 10em;
+    box-shadow: 0.5em 0.5em 10px rgba(0, 0, 0, 0.2);
+}
+.htb-con-right {
+    display: flex;
+}
+.htb-con-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    font-size: 1.3rem;
+    font-family: "Lilita One", serif;
+    color: var(--text-color);
+}
+.htb-img {
+    width: 22vw;
+    height: 22vw;
+    margin-left: 8vw ;
+    background: var(--peach-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 20px rgb(255, 136, 0);
+    box-shadow: 0.2em 0.5em 10px rgba(0, 0, 0, 0.21);
+    border-radius: 2em;
+}
+.htb-img img {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 1.8em;
+    border: 2px solid var(--peach-medium);
+}
+.htb-buy {
+    position: relative;
+    background: var(--text-color);
+    font-family: "Lilita One", serif;
+    padding: 1em 3.3em;
+    font-weight: 400;
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 0.4em;
+    box-shadow: 0.1em 0.1em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+.htb-buy::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 50px;
+    height: 50px;
+    background-image: url('/static/MP_head.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 90%;
+    transform: translateX(-50%) translateY(-30%) scale(0) rotate(-5deg);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.htb-buy:hover::after {
+    transform: translateX(-30%) translateY(-70%) scale(0.9) rotate(15deg);
+    opacity: 1;
+}
+
+.htb-buy:active {
+    transform: translate(0.05em, 0.05em);
+}
+.htb-buy:hover {
+    background: #ffa826;
+}
+@media (max-width: 1100px) {
+    .htb-buy {
+        padding: 0.6em 2em;
+    }
+}
+@media (max-width: 768px) {
+    .htb-buttons {
+        width: 60%;
+        gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 2vh 0;
+        position: relative;
+
+    }
+    .htb-container {
+        flex-direction: column;
+        justify-content: center;
+        height: 80vh;
+        width: 80%;
+        gap: 1em;
+    }
+    .htb-img {
+        margin-left: 0;
+        width: 30vw;
+        height: 30vw;
+    }
+    .htb-img img {
+        width: 28vw;
+        height: 28vw;
+    }
+    .htb-text {
+        margin-left: 0;
+        white-space: nowrap;
+        font-size: 3rem;
+    }
+    .htb-con-right {
+        align-items: center;
+        justify-content: center;
+
+    }
+}
+@media (max-width: 580px) {
+    .htb-buy {
+        padding: 0.4em 1.3em;
+    }
+    .htb-img {
+        width: 44vw;
+        height: 44vw;
+    }
+    .htb-img img {
+        width: 40vw;
+        height: 40vw;
+        border-radius: 1.6em;
+    }
+
+}
+
+
+.About-us {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.About-us.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.about-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+}
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 4rem;
+    font-family: "Lilita One", serif;
+    color: var(--cream-white);
+}
+.about-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.61);
+    border-radius: 2em;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0.5em 0.5em 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-img {
+    flex: 0 0 300px;
+    height: 300px;
+    background: var(--peach-dark);
+    border-radius: 2em;
+    box-shadow: inset 0 0 20px rgb(255, 136, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0.2em 0.5em 10px rgba(0, 0, 0, 0.21);
+
+}
+
+.about-img img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 1.8em;
+    border: 2px solid var(--peach-medium);
+}
+
+.about-text {
+    flex: 1;
+    font-size: 1.3rem;
+    font-family: "Lilita One", serif;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.about-text p {
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+
+}
+.Tokenomics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.Tokenomics.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tok-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 100vh;
+}
+.tok-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 4rem;
+    font-family: "Lilita One", serif;
+    color: var(--cream-white);
+    font-weight: 900;
+}
+.tok-containers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+.tok-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 12vh;
+    background: rgba(255, 255, 255, 0.61);
+    border-radius: 2.8em;
+    box-shadow: 0.5em 0.5em 10px rgba(0, 0, 0, 0.2);
+    font-family: "Lilita One", serif;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin: 2vh auto;
+    letter-spacing: 2px;
+}
+.tok-container-ca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 12vh;
+    background: rgba(255, 255, 255, 0.61);
+    border-radius: 2.8em;
+    box-shadow: 0.5em 0.5em 10px rgba(0, 0, 0, 0.2);
+    font-family: "Lilita One", serif;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin: 2vh auto;
+    letter-spacing: 2px;
+}
+.font-tok {
+    font-family: "Lilita One", serif;
+    font-size: 0.8rem;
+
+}
+@media screen and (max-width: 768px) {
+    .tok-header {
+        font-size: 3rem;
+    }
+    .font-tok {
+        font-size: 0.6rem;
+        letter-spacing: -1px;
+    }
+    .tok-container {
+        font-size: 1rem;
+        border-radius: 5em;
+        height: 10vh;
+    }
+    .tok-container-ca {
+        font-size: 1rem;
+        border-radius: 5em;
+        height: 10vh;
+    }
+}
+.gallery {
+    width: 100%;
+    /* Прибираємо фіксовану висоту, додаємо адаптивний відступ */
+    padding: 4vh 0;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.gallery.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Внутрішній контейнер */
+.gallery-main {
+    margin: 4vh 0;
+    background: rgba(255, 255, 255, 0.61);
+    padding: 4vh 0;
+    width: 100%;
+    /*max-width: 1200px;  !* Обмежуємо ширину, щоб не було надмірного розтягування *!*/
+    /*margin: 0 auto;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;          /* Відступ між заголовком та слайдером (якщо потрібно) */
+}
+@media screen and (max-width: 768px) {
+    .gallery {
+        height: 30vh;
+        position: relative;
+        top: -10vh;
+    }
+    .gallery-main {
+        height: 30vh;
+    }
+}
+@media screen and (max-width: 508px) {
+    .gallery {
+        height: 20vh;
+    }
+    .gallery-main {
+        height: 20vh;
+    }
+}
+.gallery-header {
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 3rem;
+    font-family: "Lilita One", serif;
+    color: var(--cream-white);
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+slider {
+    width: 100%;
+    /* Встановлюємо співвідношення сторін (наприклад, 16:9) */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    position: relative;
+    margin: 10vh 0;
+}
+
+/***** Треки слайдерів, які займають повну висоту контейнера *****/
+.slider .slide-track {
+    display: flex;
+    width: 200%;
+    height: 100%;
+}
+
+/***** Слайди *****/
+/* Для першого слайдера – 8 слайдів */
+.slider .slide {
+    width: calc(100% / 8);
+    height: 100%;
+    padding: 0 1rem;
+    flex-shrink: 0;
+}
+/* Для другого слайдера – 4 слайди */
+.slide {
+    width: calc(100% / 8);
+    height: 100%;
+    padding: 0 1rem;
+    flex-shrink: 0;
+}
+
+/***** Зображення *****/
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Масштабуємо зображення, щоб вони повністю вміщались */
+    display: block;
+    border: 3px solid #fff;
+    border-radius: 1rem;
+}
+
+/***** Анімації *****/
+@keyframes scroll-left-to-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+@keyframes scroll-right-to-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+/* Прив'язуємо анімації до треків */
+.slider .slide-track {
+    animation: scroll-left-to-right 30s linear infinite;
+}
+.slider-2 .slide-track-2 {
+    animation: scroll-right-to-left 30s linear infinite;
+}
+
+
+@media screen and (max-width: 768px) {
+    .gallery-header {
+        font-size: 1rem;
+    }
+}
+
+
+
+/* Загальний контейнер секції */
+.video {
+    width: 100%;
+    display: flex;
+    flex-direction: column;   /* Вертикальне розташування */
+    align-items: center;
+    justify-content: center;
+    padding: 4vh 0;          /* Верхній та нижній відступи замість фіксованої висоти */
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.video.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Внутрішній контейнер */
+.video-main {
+    width: 100%;
+    max-width: 1200px;       /* Обмежуємо максимальну ширину для великих екранів */
+    margin: 0 auto;          /* Вирівнюємо по центру */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Заголовок */
+.video-text {
+    width: 100%;
+    text-align: center;
+    font-family: "Lilita One", serif;
+    font-size: clamp(2rem, 5vw, 3rem); /* Адаптивний розмір (від 2rem до 3rem) */
+    font-weight: 900;
+    color: var(--cream-white);
+    letter-spacing: 1px;
+    margin-bottom: 2vh; /* Невеликий відступ знизу */
+}
+
+/* Контейнер для відео */
+.video-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Саме відео */
+video {
+    width: 80%;
+    max-width: 800px;        /* Щоб відео не розтягувалося надто широко */
+    border-radius: 1em;      /* Опціонально, округлені кути */
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 26vh;
+    background: var(--peach-medium);
+}
+.icon-footer {
+    position: relative;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.icon-item {
+    margin: 1vw;
+    list-style: none;
+}
+.footer-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 26vh;
+}
+.footer-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    font-size: 1rem;
+    font-family: "Lilita One", serif;
+    color: var(--cream-white);
+    font-weight: 400;
+    text-align: center;
+}
+.preload {
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(360deg, var(--peach-light) 0%, var(--peach-medium) 50%, var(--peach-dark) 100%);
+
+}
+.preload img {
+    width: 100px;                 /* Задайте потрібний розмір зображення */
+    animation: pulse 1.5s infinite;
+}
+/* Анімація пульсації */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
