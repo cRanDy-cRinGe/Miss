@@ -222,22 +222,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // Масив об'єктів із даними для кожного факту
     const contents = [
         {
-            image: "/static/step-1.jpg",
+            image: "static/step-1.jpg",
             heading: "Miss Peaches Day",
             html: 'May 20th Is Now Officially <a class="href" href="https://buff.ly/3ymZwhc">"Miss Peaches Day"</a> In The City Of Miami'
         },
         {
-            image: "/static/step-2.jpg",
+            image: "static/step-2.jpg",
             heading: "Creator of $jailstool",
             html: 'The creator of #jailstool also created #MissPeaches Ca, and sent 2.5% to <a class="href" href="https://x.com/stoolpresidente">Stool Presidente</a>'
         },
         {
-            image: "/static/step-3.jpg",
+            image: "static/step-3.jpg",
             heading: "Dog Meta on Sol",
             html: '<a class="href" href="https://x.com/stoolpresidente">@stoolpresidente</a> is creating an original Dogecoin-inspired meta on the Solana blockchain.'
         },
         {
-            image: "/static/step-4.jpg",
+            image: "static/step-4.jpg",
             heading: "Portnoy Approved",
             html: 'Dave Portnoy is not just the biggest HODLer of $Peaches, but personally <a class="href" href="https://solscan.io/account/8PtrmdpCaqj2nxiDqRd9hJmjiRu8gYJjCd52x6LGFS5k">bought</a> the token!'
         }
