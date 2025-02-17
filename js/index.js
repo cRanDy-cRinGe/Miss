@@ -206,19 +206,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Масив об'єктів із даними для кожного кроку
     const contents = [
         {
-            image: "/static/meme_2.jpg",
+            image: "static/meme_2.jpg",
             text: "Navigate to the ‘Settings’ option within your wallet and locate the networks section. Manually include a new network, and input the following details for Base:"
         },
         {
-            image: "/static/meme_3.jpg", // замініть на потрібне зображення
+            image: "static/meme_3.jpg", // замініть на потрібне зображення
             text: "Step 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         },
         {
-            image: "/static/meme_4.jpg", // замініть на потрібне зображення
+            image: "static/meme_4.jpg", // замініть на потрібне зображення
             text: "Step 3: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
-            image: "/static/meme_5.jpg", // замініть на потрібне зображення
+            image: "static/meme_5.jpg", // замініть на потрібне зображення
             text: "Step 4: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
         }
     ];
